@@ -1,6 +1,4 @@
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route,Routes, Link } from "react-router-dom";
-import React,{useState,useEffect} from 'react';
+import { BrowserRouter as Router, Route,Routes } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Shoes from "./Components/Shoe/Shoes";
 import Cart from "./Components/Cart/Cart";

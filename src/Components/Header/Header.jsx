@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import PropTypes from "prop-types";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import NavBarList from './NavBarList';
 
 import axios from 'axios';
@@ -9,7 +9,7 @@ const Header = ({ title }) => {
     const [supplier,setSupplier] =  useState([]);
     useEffect(() => {
       axios.get('https://shoesery.herokuapp.com/supplier').then((res,err)=> {
-        if(res.status == 200){
+        if(res.status === 200){
           setSupplier(res.data);
           console.log(res.data);
         }

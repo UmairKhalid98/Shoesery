@@ -1,6 +1,5 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import filters from '../../features/filters';
 
 const Supplier = ({supplier}) =>{
 
@@ -9,7 +8,7 @@ const Supplier = ({supplier}) =>{
     const [selected,setSelected] = useState('');
     const buttonStyle = {
         backgroundColor:'rgba(0, 0, 0, 0.0)',
-        color:supplier.supplier_name == selected?'red':'white',
+        color:supplier.supplier_name === selected?'red':'white',
         border:'none'
         
     }

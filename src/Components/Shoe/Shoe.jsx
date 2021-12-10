@@ -1,5 +1,4 @@
-import React,{useState,useEffect} from 'react';
-const imageLink = "https://freepngimg.com/thumb/shoes/28116-8-nike-shoes.png";
+import React,{useState} from 'react';
 
 
 
