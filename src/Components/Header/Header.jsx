@@ -12,16 +12,16 @@ const Header = ({ title }) => {
     const [supplier,setSupplier] =  useState([]);
     useEffect(() => {
       axios.get('https://shoesery.herokuapp.com/supplier').then((res,err)=> {
-        // if(res.status === 200){
+        if(res.status === 200){
           setSupplier(res.data);
           
-        // }
-        // else{
-        //   console.log(err);
-        // }
+        }
+        else{
+          console.log(err);
+        }
         
-      }).catch(error =>{
-        console.log(error)
+      }).catch(err =>{
+        console.log(err)
       });
     },[]);
   return (
@@ -50,7 +50,7 @@ const Header = ({ title }) => {
             width="100%"
             style={{ marginRight:"5%"}}
           />
-          <p style = {{position:'absolute',left:'70%',top:'10%',fontSize:'80%',backgroundColor:'red',borderRadius:'50px',padding:cartNumber>0?'1px 4px':'0px',fontSize:'12px',color:'white'}}>
+          <p style = {{position:'absolute',left:'70%',top:'10%',backgroundColor:'red',borderRadius:'50px',padding:cartNumber>0?'1px 4px':'0px',fontSize:'12px',color:'white'}}>
             {cartNumber>0?cartNumber:''}</p>
         </Link>
         </div>
