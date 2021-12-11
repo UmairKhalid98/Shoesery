@@ -1,9 +1,20 @@
 *{
   margin: 0;
   padding: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 100%;
+}
+.addToCart{
+  background-color:'blue';
 }
 
 button{
   background-color: rgba(0, 0, 0, 0);
   border-color:  rgba(0, 0, 0, 0);
+}
+@media only screen and (max-width: 600px) {
+  *{
+    font-size: 90%;
+  }
+  
 }

@@ -6,9 +6,10 @@ import { useSelector } from 'react-redux';
 const Shoes = () => {
     const filter =  useSelector((state)=> state.filter.value);
     const [shoes,setShoes] =  useState([]);
-
+// 
+// http://localhost:9000/
     useEffect(() => {
-      axios.post('http://localhost:9000/shoe',filter).then((res,err)=> {
+      axios.post('https://shoesery.herokuapp.com/shoe',filter).then((res,err)=> {
         // if(res.status === 200){ 
           setShoes(res.data);
           // console.log(res.data);

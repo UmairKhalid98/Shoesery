@@ -33,16 +33,17 @@ const buttonStyle = {
     
   display:"block",
   color: 'red',
-  width:"30%",
-  backgroundColor:'white',
+  width:"50%",
+  height:"10%",
+  // backgroundColor:'white',
   textAlign:'center',
+  fontSize:'90%',
   margin:"2% auto",
-  padding:"1% 0",
   border: '1px solid rgba(0, 0, 0, 0.05)',
   borderRadius:"25px",
   position:'absolute',
   bottom:'2%',
-  left:'35%',
+  left:'25%',
   boxShadow: buttonHover?hoverShadow:defaultShadow
   
 }
@@ -60,10 +61,11 @@ const buttonStyle = {
     <h3>${(shoe.sale_price).toFixed(2)}</h3>
     </div>
     <button 
+      className = "addToCart"
       onClick = {()=>dispatch(updateCart(shoe))}
       onMouseDown = {() => {setButtonHover(true)}}
       onMouseUp =  {() => {setButtonHover(false)}}
-      style = {buttonStyle}> Add to Cart</button>
+      style = {buttonStyle}> <p>Add to Cart</p></button>
     </button>
   )};
 

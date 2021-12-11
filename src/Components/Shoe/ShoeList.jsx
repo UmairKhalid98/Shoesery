@@ -28,7 +28,6 @@ const textStyle = {
 const listStyle = {
   display: "flex",
   flexWrap: "wrap",
-  flex: 1,
   width: "90%",
   margin: "auto",
   // backgroundColor:'purple'
