@@ -35,9 +35,9 @@ const CartItem = ({ shoe }) => {
 
 const Cart = () => {
   const cartList = useSelector((state) => state.filter.cartItems);
-  useEffect(() => {
-    console.log(cartList);
-  }, []);
+//   useEffect(() => {
+//     // console.log(cartList);
+//   }, []);
 
   if(cartList.length > 0){
     return (
@@ -53,7 +53,7 @@ const Cart = () => {
       );
   }
   else{
-    return (<h1 style = {{textAlign:'center',margin:'10%'}}> Your cart is empty </h1>)
+    return (<h1 style = {{textAlign:'center',margin:'10%',marginTop:"20%"}}> Your cart is empty </h1>)
   }
   
 };
