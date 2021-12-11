@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+
 import { deleteCart } from "../../features/filters";
 
 const itemStyle = {
