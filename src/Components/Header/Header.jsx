@@ -2,21 +2,26 @@ import React,{useState,useEffect} from 'react';
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import NavBarList from './NavBarList';
-
+import { changeFilter } from '../../features/filters';
+import {useDispatch,useSelector } from 'react-redux';
 import axios from 'axios';
 
 const Header = ({ title }) => {
+    const dispatch = useDispatch();
+    const cartNumber =  useSelector((state)=> state.filter.cartItems.length);
     const [supplier,setSupplier] =  useState([]);
     useEffect(() => {
       axios.get('https://shoesery.herokuapp.com/supplier').then((res,err)=> {
-        if(res.status === 200){
+        // if(res.status === 200){
           setSupplier(res.data);
-          console.log(res.data);
-        }
-        else{
-          console.log(err);
-        }
+          
+        // }
+        // else{
+        //   console.log(err);
+        // }
         
+      }).catch(error =>{
+        console.log(error)
       });
     },[]);
   return (
@@ -24,7 +29,9 @@ const Header = ({ title }) => {
       <header style={headerStyle}>
       
         <Link style={linkStyle} to="/">
+          <button style = {buttonStyle} onClick = {()=>{dispatch(changeFilter({currentFilter:'*'}))}}>
           <img src="img/Shoesery.png" alt={title} width="300%" />
+          </button>
         </Link>
 
         <div style = {linkNavStyle}>
@@ -43,6 +50,8 @@ const Header = ({ title }) => {
             width="100%"
             style={{ marginRight:"5%"}}
           />
+          <p style = {{position:'absolute',left:'70%',top:'10%',fontSize:'80%',backgroundColor:'red',borderRadius:'50px',padding:cartNumber>0?'1px 4px':'0px',fontSize:'12px',color:'white'}}>
+            {cartNumber>0?cartNumber:''}</p>
         </Link>
         </div>
       </header>
@@ -69,6 +78,10 @@ const headerStyle = {
   
 };
 
+const buttonStyle = {
+  backgroundColor:'rgba(0, 0, 0, 0.0)',
+  border:'none'
+}
 const linkNavStyle = {
   // color: "red",
   display: "flex",
@@ -93,13 +106,15 @@ fontSize:"70%"
 };
 const linkStyle = {
   width:"3%",
-  // fontSize:"80%"
+  position:'relative'
 };
 
 const navStyle = {
-//   width: "90%",
-//   alignContent: "center",
-
+  position: 'fixed',
+  top: '0',
+  backgroundColor:'white',
+  zIndex:'1',
+  width:'100%',
 };
 export default Header;
 

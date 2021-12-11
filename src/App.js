@@ -15,6 +15,7 @@ function App() {
         <Route exact path="/" element = {<Shoes/>}/>
         <Route exact path="/cart" element = {<Cart/>}/>
       </Routes>
+      <p style={{textAlign:'center',margin:'1%',fontSize:'80%'}}>Mobile view is not supported</p>
     </Router>
     
   );
