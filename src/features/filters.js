@@ -5,27 +5,47 @@ export const filterSlice = createSlice({
     name: "filter",
     initialState:{ 
         value:{currentFilter: '*'},
-        cartItems:[]
+        cartItems:[],
+        totalPrice:0,
     },
     reducers:{
+        confirmPayment:(state) =>{
+            state.totalPrice = 0;
+            state.cartItems = [];
+
+        },
         changeFilter: (state,action) =>{
             state.value = action.payload;
-            console.log("filter called");
         },
         updateCart: (state,action) =>{
             state.cartItems = [...state.cartItems,action.payload];
         },
         deleteCart: (state,action) =>{
             let arr = [...state.cartItems];
-            let index = arr.indexOf(action.payload)
-            arr.splice(index, 1);
+            console.log(action.payload);
+            
+            arr = arr.filter((item)=>{
+                return item.shoe_id !== action.payload.shoe_id;
+            })
+            console.log(arr);
             state.cartItems = arr;
+
+            let price = state.totalPrice  - action.payload.sale_price;
+            state.totalPrice = price;
+            
         },
+        updatePrice:(state,action) =>{
+            let newPrice = state.totalPrice + action.payload;
+            console.log("received price: ",action.payload,"old price: ",state.totalPrice, "new price: ", newPrice);
+            state.totalPrice = newPrice;
+            
+        }
+
         
     }
 })
 
 
 
-export const {changeFilter,updateCart,deleteCart} = filterSlice.actions;
+export const {changeFilter,updateCart,deleteCart,updatePrice,confirmPayment} = filterSlice.actions;
 export default filterSlice.reducer;

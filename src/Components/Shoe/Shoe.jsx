@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { updateCart } from '../../features/filters';
+import { updateCart,updatePrice } from '../../features/filters';
 import {useDispatch } from 'react-redux';
 
 
@@ -47,6 +47,14 @@ const buttonStyle = {
   boxShadow: buttonHover?hoverShadow:defaultShadow
   
 }
+const onButtonClick=()=>{
+  const cartShoe = {
+    ...shoe,
+    shoe_id:(100*Math.random())+shoe.shoe_name
+  }
+  dispatch(updateCart(cartShoe));
+  dispatch(updatePrice(cartShoe.sale_price))
+}
 
   return (
   <button
@@ -62,7 +70,7 @@ const buttonStyle = {
     </div>
     <button 
       className = "addToCart"
-      onClick = {()=>dispatch(updateCart(shoe))}
+      onClick = {onButtonClick}
       onMouseDown = {() => {setButtonHover(true)}}
       onMouseUp =  {() => {setButtonHover(false)}}
       style = {buttonStyle}> <p>Add to Cart</p></button>

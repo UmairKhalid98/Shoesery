@@ -1,12 +1,12 @@
 import Shoe from "./Shoe";
 
 const ShoeList = ({ shoeList }) => {
-  console.log(shoeList.length);
+  // console.log(shoeList.length);
   if (shoeList.length > 0) {
     return (
       <div style={listStyle}>
         {shoeList.map((shoe) => {
-          console.log(100*Math.random()+shoe.shoe_name)
+          // console.log(100*Math.random()+shoe.shoe_name)
           return <Shoe shoe={shoe} key={(100*Math.random())+shoe.shoe_name } />;
         })}
       </div>
